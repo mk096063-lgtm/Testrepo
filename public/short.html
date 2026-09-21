@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>CNCVEYRA Short - Quick CNC Video | CNCVEYRA</title>
+<meta name="description" content="Watch the latest CNCVEYRA short: a quick CNC programming video from the CNCVEYRA YouTube channel."/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<link rel="canonical" href="https://cncveyra.in/short.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://cncveyra.in/short.html"/>
+<meta property="og:title" content="CNCVEYRA Short - Quick CNC Video | CNCVEYRA"/>
+<meta property="og:description" content="Watch the latest CNCVEYRA short: a quick CNC programming video from the CNCVEYRA YouTube channel."/>
+<meta property="og:site_name" content="CNCVEYRA"/>
+<style>
+:root{color-scheme:dark;--b:#061018;--l:#1c3541;--t:#edf7fa;--m:#8ca2ad;--a:#38bdf8}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--b);color:var(--t);font-family:Inter,Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+header{display:flex;align-items:center;justify-content:space-between;padding:16px 5%;border-bottom:1px solid var(--l)}
+.logo{font-weight:900;letter-spacing:.12em;color:var(--a)}
+header nav a{color:var(--t);font-size:13px;margin-left:18px}
+main{max-width:1100px;margin:0 auto;padding:34px 5% 60px;text-align:center}
+.ey{font:800 12px monospace;letter-spacing:.2em;color:var(--a)}
+h1{font-size:clamp(26px,4vw,40px);margin:10px 0 8px}
+.intro{color:var(--m);max-width:680px;margin:0 auto 26px;line-height:1.65;font-size:15px}
+.stage{display:flex;justify-content:center}
+.player{position:relative;background:#000;border:1px solid #294752;overflow:hidden}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* SIZE: short 9:16 vertical */
+.player{aspect-ratio:9/16;width:min(100%,420px,calc((100vh - 230px)*9/16));min-width:220px}
+.placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:22px;background:radial-gradient(circle at 70% 20%,#0c2532 0,#061018 60%);color:var(--m);font-size:14px;line-height:1.6}
+.placeholder b{display:block;color:var(--t);font-size:16px;letter-spacing:.06em;margin-bottom:6px}
+.placeholder a{color:var(--a);text-decoration:underline}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.btn{padding:13px 18px;border:1px solid #ffffff26;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--t)}
+.btn.primary{background:var(--a);border-color:var(--a);color:#031018}
+.page-foot{border-top:1px solid var(--l);padding:18px 5%;text-align:center;color:#68818b;font-size:12px}
+.page-foot a{color:#78909b;text-decoration:underline;margin:0 6px}
+/* Embed mode (used inside the Home page): only the player, full size */
+body.embed{height:100vh;overflow:hidden}
+body.embed header,body.embed .intro,body.embed .actions,body.embed .page-foot,body.embed .ey,body.embed h1{display:none}
+body.embed main{padding:0;max-width:none}
+body.embed .stage{display:block}
+body.embed .player{position:fixed;inset:0;width:100%;height:100%;aspect-ratio:auto;border:0}
+</style>
+</head>
+<body>
+<!--
+  ==========================================================
+  YOUTUBE LINK KAISE LAGAYEIN (sirf 1 line badalni hai)
+  1. Neeche script mein  const YOUTUBE_LINK = "";  dhundo
+  2. Quotes ke andar apna YouTube video link paste karo
+     (watch link, youtu.be link ya shorts link - sab chalega)
+  3. File save/upload karo - Home page par video apne aap chalega
+  ==========================================================
+-->
+<header>
+  <a class="logo" href="/">CNCVEYRA</a>
+  <nav><a href="/">Home</a><a href="https://www.youtube.com/@cncveyra" target="_blank" rel="noopener">YouTube</a></nav>
+</header>
+<main>
+  <div class="ey">CNCVEYRA SHORT</div>
+  <h1>CNCVEYRA <span style="color:#38bdf8">Short</span></h1>
+  <p class="intro">A quick vertical video from the CNCVEYRA YouTube channel. Tap play to watch.</p>
+  <div class="stage"><div class="player" id="player"></div></div>
+  <div class="actions">
+    <a class="btn primary" href="https://www.youtube.com/@cncveyra" target="_blank" rel="noopener">Subscribe on YouTube &#8599;</a>
+    <a class="btn" href="https://www.facebook.com/profile.php?id=61594414505052" target="_blank" rel="noopener">Follow on Facebook &#8599;</a>
+    <a class="btn" href="/">Back to Home</a>
+  </div>
+</main>
+<div class="page-foot">&copy; 2026 CNCVEYRA &middot; <a href="/privacy-policy.html">Privacy Policy</a> &middot; <a href="/terms-and-conditions.html">Terms &amp; Conditions</a></div>
+
+<script>
+/* ============ YAHAN APNA YOUTUBE LINK PASTE KARO ============ */
+const YOUTUBE_LINK = "";
+/* ============================================================ */
+
+(function(){
+  var params = new URLSearchParams(location.search);
+  if (params.has('embed') || window.self !== window.top) document.body.classList.add('embed');
+
+  function videoId(u){
+    if(!u) return null;
+    u = String(u).trim();
+    if(/^[\w-]{11}$/.test(u)) return u;
+    var m = u.match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:shorts\/|embed\/|live\/|v\/|watch\?(?:[^#]*&)?v=))([\w-]{11})/);
+    return m ? m[1] : null;
+  }
+
+  var box = document.getElementById('player');
+  var id = videoId(YOUTUBE_LINK);
+  if(id){
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube.com/embed/' + id + '?rel=0&playsinline=1&modestbranding=1';
+    f.title = 'CNCVEYRA Short video';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.setAttribute('allowfullscreen','');
+    f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+    f.loading = 'lazy';
+    box.appendChild(f);
+  } else {
+    box.innerHTML = '<div class="placeholder"><div><b>CNCVEYRA SHORT</b>Video is coming soon.<br>Watch our channel on <a href="https://www.youtube.com/@cncveyra" target="_blank" rel="noopener">YouTube</a>.</div></div>';
+  }
+})();
+</script>
+</body>
+</html>
