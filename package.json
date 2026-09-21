@@ -1,0 +1,6 @@
+{
+  "name": "veyra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CNCVEYRA site + turning G-code generation backend, as a single Cloudflare Worker with static assets."
+}

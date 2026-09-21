@@ -1,0 +1,14 @@
+name = "veyra"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# KV namespace used for simple per-IP rate limiting on the /api/* routes.
+# Replace `id` below with the Namespace ID shown on your
+# Cloudflare dashboard -> Workers & Pages -> KV -> RATE_LIMIT page.
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "cbc0f27d58c14a73a4251d95c06f7b33"
